@@ -1,11 +1,9 @@
-import React from "react";
+import { WebView } from 'react-native-webview';
 
-interface WebViewProps {
-    url: string;
+interface WebProps {
+  url: string;
 }
 
-export const WebView: React.FC<WebViewProps> = ({ url }) => {
-    return (
-        <iframe title="web-view" src={url} style={{width: '100%', height: '80vh'}}></iframe>
-    );
+export const Web: React.FC<WebProps> = ({ url }) => {
+  return <WebView source={{ uri: url }} />;
 };
