@@ -1,0 +1,5 @@
+{
+    ['@babel/preset-react']
+    ['@babel/plugin-syntax-jsx']
+  }
+  

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { WebView } from './WebView';
+import { Web } from './WebView';
 
 interface BrowserProps { }
 
@@ -20,7 +20,7 @@ export const Browser: React.FC<BrowserProps> = () => {
                 <input type="text" value={url} onChange={handleInputChange}></input>
                 <button type="submit">Go</button>
             </form>
-            <WebView url={url} />
+            <Web url={url} />
         </div>
     )
 }

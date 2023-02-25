@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, View } from 'react-native';
 
 interface AddressBarProps {
   url: string;
@@ -14,23 +13,25 @@ export const AddressBar: React.FC<AddressBarProps> = ({ url, onUrlChange }) => {
   };
 
   return (
-    <View style={styles.container}>
-      <TextInput
+    <div style={styles.container}>
+      <input
         style={styles.input}
         value={currentUrl}
-        onChangeText={setCurrentUrl}
-        onSubmitEditing={handleUrlSubmit}
+        onChange={(e) => setCurrentUrl(e.target.value)}
+        onKeyPress={(e) => {
+          if (e.key === 'Enter') {
+            handleUrlSubmit();
+          }
+        }}
         autoCapitalize="none"
-        autoCorrect={false}
         placeholder="Enter URL"
-        placeholderTextColor="#888"
-        returnKeyType="go"
+        type="text"
       />
-    </View>
+    </div>
   );
 };
 
-const styles = StyleSheet.create({
+const styles = {
   container: {
     backgroundColor: '#f2f2f2',
     padding: 8,
@@ -44,4 +45,5 @@ const styles = StyleSheet.create({
     height: 36,
     paddingHorizontal: 8,
   },
-});
+};
+
